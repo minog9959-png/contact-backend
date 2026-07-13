@@ -3,7 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 import cors from "cors";
-import contactRoutes from "./routes/contactRoutes.js";
+import contactRoutes from "./routes/ContactRoutes.js";
 
 dns.setServers(["8.8.8.8", "1.1.1.1"]);
 dns.setDefaultResultOrder("ipv4first");
