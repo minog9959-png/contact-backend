@@ -1,4 +1,4 @@
-import Contact from "../models/Contact.js";
+import ContactForm from "../models/Contact.js";
 
 export const createContact = async (req, res) => {
   try {
@@ -13,7 +13,7 @@ export const createContact = async (req, res) => {
     }
 
     // Save Data in MongoDB
-    const contact = await Contact.create({
+    const contact = await ContactForm.create({
       name,
       email,
       message,
