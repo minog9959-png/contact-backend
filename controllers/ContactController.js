@@ -12,6 +12,15 @@ export const createContact = async (req, res) => {
       });
     }
 
+    const existingUser = await ContactForm.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({
+        success: false,
+        message: "Email already exists",
+      });
+    }
+
     // Save Data in MongoDB
     const contact = await ContactForm.create({
       name,
@@ -27,6 +36,7 @@ export const createContact = async (req, res) => {
     });
 
   } catch (error) {
+
     res.status(500).json({
       success: false,
       message: error.message,
