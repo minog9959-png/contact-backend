@@ -15,6 +15,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// GET routes — UptimeRobot / browser check ke liye
+// Is ke baghair har GET par "Cannot GET" aata tha, kyun ke sirf POST /api/contact tha.
+app.get("/", (req, res) => res.json({ message: "Backend is running" }));
+app.get("/api/health", (req, res) => res.json({ ok: true, app: "contact-backend" }));
+
 app.use("/api/contact", contactRoutes);
 
 // Connect MongoDB
